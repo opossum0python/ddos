@@ -144,7 +144,7 @@ while DEBAG == False:
         spamm20()
         spamm21()
         spamm22()
-        spamm23()
+        #spamm23()
         spamm24()
         spamm25()
         spamm26()
@@ -154,7 +154,7 @@ while DEBAG == False:
         spamm30()
     except:
         print('error')
-    iteration +=1
+    iteration += 1
     print('Пройдено {0} кругов!'.format(iteration))
 
 while DEBAG == True:
@@ -165,8 +165,8 @@ while DEBAG == True:
     spamm4()
     spamm5()
     spamm6()
-    spamm7()
-    spamm8()
+    #spamm7()
+    #spamm8()
     spamm9()
     spamm10()
     spamm11()
@@ -181,7 +181,7 @@ while DEBAG == True:
     spamm20()
     spamm21()
     spamm22()
-    spamm23()
+    #spamm23()
     spamm24()
     spamm25()
     spamm26()
