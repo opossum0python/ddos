@@ -15,6 +15,7 @@ print('''
 ''')
 
 DEBAG = False
+timer = False
 iteration = 0
 start_time = time.monotonic()
 phone = input('Введите номер: ')
@@ -148,7 +149,7 @@ def spamm30(phone=phone):
 print('Началась атака!')
 
 while DEBAG == False:
-    if attak_duration < time.monotonic() - start_time:
+    if attak_duration < time.monotonic() - start_time or timer:
         break
     try:
         spamm1()
