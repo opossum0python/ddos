@@ -25,7 +25,7 @@ if delay == '1':
 else:
     delay = 5
 if DEBAG == False:
-    attak_duration = int(input('Введите время атаки в секндах(0 == бессконечность): '))
+    attak_duration = int(input('Введите время атаки в секундах(0 == бессконечность): '))
     if attak_duration == 0:
         timer = True
 
