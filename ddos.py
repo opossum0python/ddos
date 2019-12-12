@@ -22,17 +22,13 @@ delay = input('Если хотите сделать задержку перед 
 
 if delay == '1':
     delay = int(input('Введите колличество секунд до начала атаки: '))
-
+else:
+    delay = 5
 if DEBAG == False:
     attak_duration = int(input('Введите время атаки в секндах(0 == бессконечность): '))
-
-    def timer(attak_duration = attak_duration, start_time = start_time):
-        if attak_duration > time.monotonic() - start_time:
-            return True
-        return False
-
     if attak_duration == 0:
         timer = True
+
     time.sleep(delay)
 
 
@@ -151,7 +147,9 @@ def spamm30(phone=phone):
 
 print('Началась атака!')
 
-while DEBAG == False and timer:
+while DEBAG == False:
+    if attak_duration < time.monotonic() - start_time:
+        break
     try:
         spamm1()
         spamm2()
@@ -187,7 +185,6 @@ while DEBAG == False and timer:
         print('ERROR')
     iteration += 1
     print('Пройдено {0} кругов!'.format(iteration), 'время атаки составляет {0} секунд!'.format(time.monotonic() - start_time))
-
 else:
     if DEBAG == False:
         print('Атака завершена!')
