@@ -28,8 +28,9 @@ else:
 if DEBAG == False:
     attak_duration = int(input('Введите время атаки в секундах(0 == бессконечность): '))
     if attak_duration == 0:
-        timer = True
-
+        timer = False
+    else:
+        timer = attak_duration < time.monotonic() - start_time
     time.sleep(delay)
 
 
@@ -149,7 +150,7 @@ def spamm30(phone=phone):
 print('Началась атака!')
 
 while DEBAG == False:
-    if attak_duration < time.monotonic() - start_time or timer:
+    if  timer:
         break
     try:
         spamm1()
@@ -185,7 +186,7 @@ while DEBAG == False:
     except:
         print('ERROR')
     iteration += 1
-    print('Пройдено {0} кругов!'.format(iteration), 'время атаки составляет {0} секунд!'.format(time.monotonic() - start_time))
+    print('Пройдено {0} кругов!'.format(iteration), 'время атаки составляет {0} сек!'.format(round(time.monotonic() - start_time)))
 else:
     if DEBAG == False:
         print('Атака завершена!')
