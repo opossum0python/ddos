@@ -11,10 +11,8 @@ def timer(start_time):
             return True
         return False
 
-
 delay = input('Если хотите сделать задержку перед атакой, введите "1": ')
 attak_duration = int(input('Введите время атаки в секундах(0 == бессконечность): '))
-
 _phone = input('Ведите номер (79xxxxxxxxx)-->> ')
 code_country = input('Введите код страны начиная с "+"')
 start_time = time.monotonic()
@@ -28,7 +26,6 @@ if code_country[0] == '+':
     code_country = code_country[1:]
 
 _phone = code_country + _phone[-10:]
-
 _name = ''
 for x in range(12):
     _name = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
@@ -36,13 +33,12 @@ for x in range(12):
     username = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
 
 _phone9 = _phone[1:]
-_phoneAresBank = '+' + code_country + '(' + _phone[-10:-7] + ')' + _phone[-7:-4] + '-' + _phone[-4:-2] + '-' + _phone[
-                                                                                                               -2:]
+_phoneAresBank = '+' + code_country + '(' + _phone[-10:-7] + ')' + _phone[-7:-4] + '-' + _phone[-4:-2] + '-' + _phone[-2:]
 _phone9dostavista = code_country + _phone[:-7] + '+' + _phone9[-7:-5] + '-' + _phone9[-5:-3] + '-' + _phone9[-3:]
 _phoneOstin = '+' + code_country + '+(' + _phone[-10:-7] + ')' + _phone[-7:-4] + '-' + _phone[-4:-2] + '-' + _phone[-2:]
-_phonePizzahut = '+' + code_country + ' (' + _phone[-10:-7] + ') ' + _phone[-7:-4] + ' ' + _phone[-4:-2] + ' ' + _phone[
-                                                                                                                 -2:]
+_phonePizzahut = '+' + code_country + ' (' + _phone[-10:-7] + ') ' + _phone[-7:-4] + ' ' + _phone[-4:-2] + ' ' + _phone[-2:]
 _phoneGorzdrav = _phone[-10:-7] + ') ' + _phone[-7:-4] + '-' + _phone[-4:-2] + '-' + _phone[-2:]
+
 
 iteration = 0
 start_time = time.monotonic()
